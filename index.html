@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Visualização NOVA OBRA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; font-family: sans-serif; background-color: #f4f4f4; }
+        model-viewer { width: 100vw; height: 100vh; --poster-color: transparent; }
+        
+        /* Estilo do botão de Realidade Aumentada */
+        #ar-button {
+            background-color: #007bff;
+            color: white;
+            border-radius: 30px;
+            border: none;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
+
+        /* Instrução que aparece sobre o modelo antes do AR */
+        .instruction-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            pointer-events: none; /* Deixa clicar no modelo por baixo */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instruction-overlay">
+        <strong>DICA:</strong> Clique no botão azul abaixo e, quando a câmera abrir, <b>aponte para o chão</b> e mova o celular devagar.
+    </div>
+
+    <model-viewer 
+        src="LINK_DO_SEU_ARQUIVO" 
+        ar 
+        ar-modes="scene-viewer quick-look" 
+        ar-scale="fixed"
+        camera-controls 
+        touch-action="pan-y"
+        shadow-intensity="1"
+        alt="Modelo 3D do móvel">
+        
+        <button slot="ar-button" id="ar-button">
+            📱 VER MÓVEL NO CÔMODO
+        </button>
+
+    </model-viewer>
+
+</body>
+</html>
